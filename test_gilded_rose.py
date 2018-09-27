@@ -69,12 +69,6 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals(0, items[0].quality)
 
-    def test_backstagepass_is_worthless_after_sell_by_date(self):
-        items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEquals(0, items[0].quality)
-
     def test_conjured_items_quality_decrease_by_2(self):
         items = [Item("Conjured", 10, 10)]
         gilded_rose = GildedRose(items)
