@@ -1,6 +1,6 @@
 import unittest
 
-from gilded_rose import Item, GildedRose
+from gilded_rose import Item, GildedRose, ItemType
 
 class GildedRoseTest(unittest.TestCase):
     def test_quality_decreases_by_1(self):
@@ -73,7 +73,19 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Conjured", 10, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEquals(8, items[0].quality)                                                        
+        self.assertEquals(8, items[0].quality)
+
+    def test_item_type_assigns_a_category(self):
+        new_item = [ItemType("foo", 2, 10, "conjured")]
+        #gilded_rose = GildedRose(items)
+        #gilded_rose.update_quality()
+        self.assertEquals("conjured", new_item[0].category)
+
+    def test_item_type_inherits_from_type(self):
+        new_item = [ItemType("foo", 2, 10, "conjured")]
+        #gilded_rose = GildedRose(items)
+        #gilded_rose.update_quality()
+        self.assertEquals("foo", new_item[0].name)                                                                    
 
 if __name__ == '__main__':
     unittest.main()
